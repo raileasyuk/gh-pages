@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <title>Example iFrame embed</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // Dynamically updates height of iframe to match content
+        window.addEventListener("message", (event) => {
+            document.querySelector('iframe#trainsplit').style.height = `${Math.ceil(event.data.height) + 5}px`;
+
+            // Just used for the demo, you can remove this line:
+            document.querySelector('span').innerHTML = document.querySelector('iframe').style.height;
+        }, false);
+    </script>
+</head>
+
+<body>
+<p>This is an embeddable widget. iFrame height is <span id="height"></span></p>
+<!-- Use fully qualified domain name here -->
+<!-- Feel free to tweak width -->
+<iframe src="/embeddable" id="trainsplit" style="border:0; width: 600px; height: 600px;"></iframe>
+</body>
+</html>
